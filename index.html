@@ -1,130 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GOOD VIBES FORM</title>
-    <script src="./assets/custom/js/index.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
     <script src="./assets/vendor/bootstrap/js/bootstrap.js"></script>
-    <link rel="stylesheet" href="./assets/vendor/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="bootstrap-grid.css">
-    <link rel="stylesheet" href="index.css">
-</head>
-<body>
-    <div id="some_block">Good Vibes Form</div>
-    <br>
-    <br>
-    <div>Tell us something positive that happened to you today</div>
-    <br>
-    <br>
-    <div class="container">
+    <script src="./assets/custom/js/index.js"></script>
+    <link rel="stylesheet" href="./assets/vendor/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="./assets/custom/css/index.css" />
+  </head>
+  <body>
+    <div class="root">
+      <header class="header text-center p-3">
+        <h1 class="">Good Vibes Form</h1>
+        <p class="h4">Tell us something positive that happened to you today</p>
+      </header>
+      <main class="container py-4">
         <div class="row">
-            <div class="col">Name</div>
-            <div id="col1" class="col">
-                <form action="" method="POST">
-        
-                    <input type="text" name="name" value="Enter your name">
-                </form>
-            </div>
+          <div class="col">
+            <form onsubmit="submitHandler(event)">
+              <div class="form-group row">
+                <label for="name" class="col-sm-3 col-form-label text-right"
+                  >Name</label
+                >
+                <div class="col-sm-9">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="name"
+                    placeholder="Enter your name"
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="email" class="col-sm-3 col-form-label text-right"
+                  >Email</label
+                >
+                <div class="col-sm-9">
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    placeholder="Enter your email adress"
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label
+                  for="happiness"
+                  class="col-sm-3 col-form-label text-right"
+                  >Happiness</label
+                >
+                <div class="col-sm-9">
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="happiness"
+                    min="1"
+                    max="10"
+                    step="1"
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="place" class="col-sm-3 col-form-label text-right"
+                  >Where did it happen?</label
+                >
+                <div class="col-sm-9">
+                  <select class="form-control" id="place" required>
+                    <option value="" selected disabled hidden>
+                      Choose here...
+                    </option>
+                    <option value="At home">At home</option>
+                    <option value="At work">At work</option>
+                  </select>
+                </div>
+              </div>
+              <fieldset class="form-group">
+                <div class="row">
+                  <legend class="col-form-label col-sm-3 pt-0 text-right">
+                    When did it happened?
+                  </legend>
+                  <div class="col-sm-9">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="dayTime"
+                        id="morning"
+                        value="Morning"
+                        checked
+                      />
+                      <label class="form-check-label" for="morning">
+                        Morning
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="dayTime"
+                        id="afternoon"
+                        value="Afternoon"
+                      />
+                      <label class="form-check-label" for="afternoon">
+                        Afternoon
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="dayTime"
+                        id="evening"
+                        value="Evening"
+                      />
+                      <label class="form-check-label" for="evening">
+                        Evening
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="form-group">
+                <div class="row">
+                  <legend class="col-form-label col-sm-3 pt-0 text-right">
+                    What emotions did you experience?
+                  </legend>
+                  <div class="col-sm-9">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        name="emotion"
+                        value="Excited"
+                        id="excited"
+                      />
+                      <label class="form-check-label" for="excited">
+                        Excited
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        name="emotion"
+                        value="Humbled"
+                        id="humbled"
+                      />
+                      <label class="form-check-label" for="humbled">
+                        Humbled
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        name="emotion"
+                        value="Elated"
+                        id="elated"
+                      />
+                      <label class="form-check-label" for="elated">
+                        Elated
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        name="emotion"
+                        value="Loved"
+                        id="loved"
+                      />
+                      <label class="form-check-label" for="loved">
+                        Loved
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        name="emotion"
+                        value="Enthusiastic"
+                        id="enthusiastic"
+                      />
+                      <label class="form-check-label" for="enthusiastic">
+                        Enthusiastic
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+              <div class="form-group row">
+                <label
+                  for="experience"
+                  class="col-sm-3 col-form-label text-right"
+                  >Experience</label
+                >
+                <div class="col-sm-9">
+                  <textarea
+                    class="form-control"
+                    id="experience"
+                    rows="3"
+                    placeholder="Enter your experience here..."
+                  ></textarea>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-12 text-center">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
+      </main>
     </div>
-    
-    <br>
-    <div class="container">
-        <div class="row">
-            <div class="col">Email</div>
-            <div id="col1" class="col">
-                <form action="" method="POST">
-    
-                    <input type="text" name="Email" value="Enter your email adress">
-                </form>
-            </div>
-        </div>
-    </div>
-    
-    <br>
-    <div class="container">
-        <div class="row">
-            <div class="col">On a scale of 1-10, how good was it?</div>
-            <div id="col1" class="col">
-                <form action="" method="POST">
-        
-                    <input type="text" name="qw" value="Enter a numer between 1 and 10">
-                </form>
-            </div>
-        </div>
-    </div>
-    
-    <br>
-    <div class="container">
-        <div class="row">
-            <div class="col">Where did it happened?</div>
-            <div id="col1" class="col">
-                <form action="" method="POST">
-                    <select >
-                        <option value="">At home</option>
-                        <option value="">At work</option>
-                    </select>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <br>
-    <div class="container">
-        <div class="row">
-            <div class="col">At what time of day did it happened?</div>
-            <div id="col1" class="col">
-                <form>
-                    <input id="radio_1" name="guruweba_example_radio" type="radio" value="1" />
-                    <label for="radio_1">Morning</label><br />
-                    <input id="radio_2" name="guruweba_example_radio" type="radio" value="2" />
-                    <label for="radio_2">Afternoon</label><br />
-                    <input id="radio_3" name="guruweba_example_radio" type="radio" value="3" />
-                    <label for="radio_3">Evening</label>
-                </form>
-            </div>
-        </div>
-    </div>
-    <br>
-    <div class="container">
-        <div class="row">
-            <div class="col">What emotions did you experience? <br>
-                (Select all the apply)</div>
-            <div id="col1" class="col">
-                <form>
-                    <label>
-                    </label>
-                    <input id="checkbox1" name="checkbox" type="checkbox" value="1">
-                     <label for="checkbox1">Excited</label><br />
-                     <input id="checkbox2" name="checkbox" type="checkbox" value="2">
-                     <label for="checkbox2">Humbled</label><br />
-                     <input id="checkbox3" name="checkbox" type="checkbox" value="3">
-                     <label for="checkbox3">Elated</label><br />
-                     <input id="checkbox4" name="checkbox" type="checkbox" value="4">
-                     <label for="checkbox4">Loved</label><br />
-                     <input id="checkbox5" name="checkbox" type="checkbox" value="5">
-                     <label for="checkbox5">Enthusiastic</label>
-                   </form>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col">Please describe your positive experience</div>
-            <div id="col1" class="col">
-                <form>
-                    <input id="some_text" type="text" name="name" value="Enter your experience here...">
-                   </form>
-            </div>
-        </div>
-    </div>
-   
-   <br>
-    <button id="button" type="submit" onclick="submitHandler(event)">
-        Submit
-    </button>
-        
-</body>
+  </body>
 </html>
