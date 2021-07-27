@@ -1,0 +1,15 @@
+body {
+  background-color: wheat;
+}
+
+.root {
+}
+
+.header {
+}
+
+#some_text {
+  width: 250px;
+  height: 80px;
+  vertical-align: 50px;
+}
